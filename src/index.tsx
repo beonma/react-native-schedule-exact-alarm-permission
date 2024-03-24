@@ -18,7 +18,8 @@ const ScheduleExactAlarmPermission = NativeModules.ScheduleEA
       }
     );
 
-export const { getPermission } = ScheduleExactAlarmPermission;
+export const getPermission: () => void =
+  ScheduleExactAlarmPermission.getPermission;
 
 export const useSEA = () => {
   const [state, setState] = useState<boolean | undefined>(undefined);

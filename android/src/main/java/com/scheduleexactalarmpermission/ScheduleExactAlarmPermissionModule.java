@@ -16,8 +16,8 @@ import android.util.Log;
 public class ScheduleExactAlarmPermissionModule extends ReactContextBaseJavaModule {
 
     public static final String NAME = "ScheduleEA";
-    private final AlarmManager alarmManager;
     private static final String TAG = "SEAModule";
+    private final AlarmManager alarmManager;
 
     ScheduleExactAlarmPermissionModule (ReactApplicationContext context) {
         super(context);
@@ -39,7 +39,6 @@ public class ScheduleExactAlarmPermissionModule extends ReactContextBaseJavaModu
             boolean checkAlarmPermission = alarmManager.canScheduleExactAlarms();
             callback.invoke(checkAlarmPermission);
         } else {
-            Log.d(TAG, "checkPermission: log form android");
             callback.invoke(true);
         }
     }
