@@ -1,4 +1,5 @@
-import { NativeModules, Platform } from 'react-native';
+import { useEffect, useState } from 'react';
+import { AppState, NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-schedule-exact-alarm-permission' doesn't seem to be linked. Make sure: \n\n` +
@@ -6,8 +7,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const ScheduleExactAlarmPermission = NativeModules.ScheduleExactAlarmPermission
-  ? NativeModules.ScheduleExactAlarmPermission
+const ScheduleExactAlarmPermission = NativeModules.ScheduleEA
+  ? NativeModules.ScheduleEA
   : new Proxy(
       {},
       {
@@ -17,6 +18,28 @@ const ScheduleExactAlarmPermission = NativeModules.ScheduleExactAlarmPermission
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return ScheduleExactAlarmPermission.multiply(a, b);
-}
+export const { getPermission } = ScheduleExactAlarmPermission;
+
+export const useSEA = () => {
+  const [state, setState] = useState<boolean | undefined>(undefined);
+
+  function checkPermission() {
+    ScheduleExactAlarmPermission.checkPermission((result: boolean) => {
+      setState(result);
+    });
+  }
+  useEffect(() => {
+    checkPermission();
+    const unsubscribe = AppState.addEventListener('change', (appState) => {
+      if (appState.match(/active/)) {
+        checkPermission();
+      }
+    });
+
+    return () => {
+      unsubscribe.remove();
+    };
+  }, []);
+
+  return state;
+};

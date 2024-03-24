@@ -1,18 +1,24 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-schedule-exact-alarm-permission';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import {
+  getPermission,
+  useSEA,
+} from 'react-native-schedule-exact-alarm-permission';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const SEAstatus = useSEA();
+  console.log(SEAstatus);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: {`${SEAstatus}`}</Text>
+      <Button
+        title="click me"
+        onPress={() => {
+          getPermission();
+        }}
+      />
     </View>
   );
 }

@@ -36,7 +36,8 @@
   },
   "keywords": [
     "react-native",
-    "ios",
+    "schedule-exact-alarm",
+    "permission",
     "android"
   ],
   "repository": {
