@@ -1,7 +1,7 @@
 {
   "name": "react-native-schedule-exact-alarm-permission",
   "version": "0.1.0",
-  "description": "cool",
+  "description": "Request schedule-exact-alarm permission in android",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
