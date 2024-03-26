@@ -23,7 +23,7 @@ The [example app](/example/) demonstrates usage of the library. You need to run 
 
 It is configured to use the local version of the library, so any changes you make to the library's source code will be reflected in the example app. Changes to the library's JavaScript code will be reflected in the example app without a rebuild, but native code changes will require a rebuild of the example app.
 
-If you want to use Android Studio or XCode to edit the native code, you can open the `example/android` or `example/ios` directories respectively in those editors. To edit the Objective-C or Swift files, open `example/ios/ScheduleExactAlarmPermissionExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > react-native-schedule-exact-alarm-permission`.
+If you want to use Android Studio to edit the native code, you can open the `example/android` directory in the editor.
 
 To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `react-native-schedule-exact-alarm-permission` under `Android`.
 
@@ -39,12 +39,6 @@ To run the example app on Android:
 
 ```sh
 yarn example android
-```
-
-To run the example app on iOS:
-
-```sh
-yarn example ios
 ```
 
 Make sure your code passes TypeScript and ESLint. Run the following to verify:
@@ -87,16 +81,6 @@ We use [TypeScript](https://www.typescriptlang.org/) for type checking, [ESLint]
 
 Our pre-commit hooks verify that the linter and tests pass when committing.
 
-### Publishing to npm
-
-We use [release-it](https://github.com/release-it/release-it) to make it easier to publish new versions. It handles common tasks like bumping version based on semver, creating tags and releases etc.
-
-To publish new versions, run the following:
-
-```sh
-yarn release
-```
-
 ### Scripts
 
 The `package.json` file contains various scripts for common tasks:
@@ -107,7 +91,6 @@ The `package.json` file contains various scripts for common tasks:
 - `yarn test`: run unit tests with Jest.
 - `yarn example start`: start the Metro server for the example app.
 - `yarn example android`: run the example app on Android.
-- `yarn example ios`: run the example app on iOS.
 
 ### Sending a pull request
 

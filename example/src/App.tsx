@@ -8,13 +8,12 @@ import {
 
 export default function App() {
   const SEAstatus = useSEA();
-  console.log(SEAstatus);
 
   return (
     <View style={styles.container}>
       <Text>Result: {`${SEAstatus}`}</Text>
       <Button
-        title="click me"
+        title="Get SEA permission"
         onPress={() => {
           getPermission();
         }}
