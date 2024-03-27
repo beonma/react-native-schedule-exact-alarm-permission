@@ -1,3 +1,9 @@
+![NPM Version](https://img.shields.io/npm/v/react-native-schedule-exact-alarm-permission?style=flat-square&label=version&color=darkgreen)
+![Static Badge](https://img.shields.io/badge/platform-Android-darkgreen?style=flat-square)
+![Static Badge](https://img.shields.io/badge/license-MIT-darkgreen?style=flat-square)
+
+> For the latest documentation, please refer to this [documentation](https://github.com/mybeon/react-native-schedule-exact-alarm-permission#readme).
+
 ## Installation
 
 Install the package using npm:
