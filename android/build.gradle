@@ -38,7 +38,7 @@ def supportsNamespace() {
 
 android {
   if (supportsNamespace()) {
-    namespace "com.scheduleexactalarmpermission"
+    namespace "com.beonma.scheduleexactalarm"
 
     sourceSets {
       main {

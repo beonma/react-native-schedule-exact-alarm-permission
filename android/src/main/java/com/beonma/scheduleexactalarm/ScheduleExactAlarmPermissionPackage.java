@@ -1,4 +1,4 @@
-package com.scheduleexactalarmpermission;
+package com.beonma.scheduleexactalarm;
 
 import androidx.annotation.NonNull;
 
