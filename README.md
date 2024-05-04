@@ -63,6 +63,16 @@ export default function App() {
 }
 ```
 
+#### checkPermission
+
+Similar to the `useSEA()` hook, `checkPermission()` provides the status of the schedule exact alarm permission. However, the key distinction lies in checkPermission being a standard asynchronous function, enabling its use outside of a React component.
+
+```js
+import { checkPermission } from 'react-native-schedule-exact-alarm-permission';
+
+const permissionStatus = await checkPermission();
+```
+
 #### getPermission
 
 `getPermission()` function directs users to the Alarms & Reminders screen in system settings, allowing them to grant the permission. When used alongside `useSEA()`, the status value updates accordingly based on the user's actions once they return to the app. This function remains inactive if the permission is already granted or if the user's API level is below 34 (Android 14).

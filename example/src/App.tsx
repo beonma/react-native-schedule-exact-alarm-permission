@@ -2,12 +2,20 @@ import * as React from 'react';
 
 import { Button, StyleSheet, Text, View } from 'react-native';
 import {
+  checkPermission,
   getPermission,
   useSEA,
 } from 'react-native-schedule-exact-alarm-permission';
 
 export default function App() {
   const SEAstatus = useSEA();
+
+  React.useEffect(() => {
+    (async () => {
+      const permission = await checkPermission();
+      console.warn('permission: ' + permission);
+    })();
+  }, []);
 
   return (
     <View style={styles.container}>

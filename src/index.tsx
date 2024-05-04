@@ -21,19 +21,28 @@ const ScheduleExactAlarmPermission = NativeModules.ScheduleEA
 export const getPermission: () => void =
   ScheduleExactAlarmPermission.getPermission;
 
+export const checkPermission = (): Promise<boolean> => {
+  return new Promise((resolve, _) => {
+    ScheduleExactAlarmPermission.checkPermission((result: boolean) => {
+      resolve(result);
+    });
+  });
+};
+
 export const useSEA = () => {
   const [state, setState] = useState<boolean | undefined>(undefined);
 
-  function checkPermission() {
+  function check() {
     ScheduleExactAlarmPermission.checkPermission((result: boolean) => {
       setState(result);
     });
   }
+
   useEffect(() => {
-    checkPermission();
+    check();
     const unsubscribe = AppState.addEventListener('change', (appState) => {
       if (appState.match(/active/)) {
-        checkPermission();
+        check();
       }
     });
 
